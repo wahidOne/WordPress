@@ -25,7 +25,8 @@ echo "Memindahkan data"
 echo "=============================>"
 sudo rm -R /var/www/html/*
 sudo rm -f /var/www/html/*
-sudo mv wordpress/* /var/www/html
+cd   wordpress
+sudo cp -r * /var/www/html
 echo "=============================>"
 echo "Setup selesai"
 echo "=============================>"
@@ -35,7 +36,7 @@ echo "=============================>"
 
 sudo mysql -u root -e "create database wordpress";
 
-sudo mysql -u root wordpress < /var/www/html;
+sudo mysql -u root wordpress < /var/www/html/dump.sq;
 
 sudo mysql -u root -e "create user 'wordpress'@'%' identified by 'password'";
 
